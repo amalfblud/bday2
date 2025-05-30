@@ -5,49 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Story</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Our Story 💖</h1>
+    <header>
+        <nav class="navbar">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="#note">Note</a></li>
+            <li><a href="#game">Mini Game :3</a></li>
+            <li><a href="#memories">Memories</a></li>
+            <li><a href="#video">Video</a></li>
+          </ul>
+        </nav>
+    </header>
+      
 
-    <!-- Photo Gallery -->
-    <section class="gallery">
-      <h2>Memories</h2>
-      <div class="gallery-grid">
-        <img src="assets/images/pic1.jpg" alt="Memory 1" />
-        <img src="assets/images/pic2.jpg" alt="Memory 2" />
-        <img src="assets/images/pic3.jpg" alt="Memory 3" />
-      </div>
+    <div class="container">
+    <!-- Love Note -->
+    <section id="note" class="note">
+        <h2>Sharifah Fauziana 💖</h2>
+        <p>
+          I love you.<br>
+          I know you don't care,<br>
+          Do what makes you happy,<br>
+          I don't wanna be the source of your pain,<br>
+          I want you to be happy.<br><br>
+      
+          It's gonna be repetitive, but<br>
+          I'm sorry for everything that I've done.<br><br>
+      
+          Yeah, you're right, I'm still childish, I know,<br>
+          Especially to someone that I really love,<br>
+          I never loved someone like my love to you.<br><br>
+      
+          I always regretted my own decision,<br>
+          And I hate myself for doing that.<br><br>
+      
+          You're the reason that I'm filled with purpose,<br>
+          And you are my dreams.<br><br>
+      
+          I love you.<br><br>
+      
+          I love you so muchh.<br><br>
+      
+          💌
+        </p>
     </section>
 
     <!-- Mini Game -->
-    <section class="game">
-        <h2>Catch the Hearts Game</h2>
+    <section id="game" class="game">
+        <h2>Main Gameeee 💖</h2>
         <div class="game-container">
-          <canvas id="gameCanvas" width="400" height="400"></canvas>
-          <div id="overlay"></div>
-          <div id="gameOver">
-            <h2>Game Over!</h2>
-            <button onclick="retryGame()">Retry</button>
-          </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="overlay"></div>
+  
+            <!-- Start Screen -->
+            <div id="startScreen">
+                <h2>Mwehehehehe ( ≖‿  ≖ )</h2>
+                <button onclick="startGame()">Mulekaaaannnnn 😏😏😏</button>
+            </div>
+  
+            <!-- Game Over Screen -->
+            <div id="gameOver">
+                <h2>Yaahhh ˙◠˙</h2>
+                <button onclick="retryGame()">Ayoo coba lagiiii !!!</button>
+            </div>
         </div>
+  
         <div class="touch-controls">
             <button id="leftBtn">◀</button>
             <button id="rightBtn">▶</button>
         </div>
+  
         <p id="score">Score: 0</p>
     </section>
-      
+  
 
-    <!-- Love Note -->
-    <section class="note">
-      <h2>A Little Note</h2>
-      <p>I love you more than words can say. Every moment with you is precious. Thank you for being in my life. 💌</p>
-    </section>
+    <!-- Photo Gallery -->
+    <section id="memories" class="memories">
+        <h2>Memories</h2>
+        <div class="gallery-grid">
+          <img src="assets/images/pic1.jpg" alt="Memory 1" />
+          <img src="assets/images/pic2.jpg" alt="Memory 2" />
+          <img src="assets/images/pic3.jpg" alt="Memory 3" />
+        </div>
+      </section>
 
      <!-- Voice Note / Video -->
-     <section class="media">
-        <h2>Or Watch This Video</h2>
+     <section id="video" class="video">
+        <h2>My Message</h2>
         <video width="320" height="240" controls>
           <source src="assets/video/ourvideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.

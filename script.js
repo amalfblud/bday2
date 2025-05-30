@@ -131,5 +131,47 @@ function retryGame() {
     document.getElementById('overlay').style.display = 'none';
     update();
   }
+
+// Start Game Logic
+function startGame() {
+    isGameOver = false;
+    score = 0;
+    hearts = [];
+    document.getElementById('score').innerText = 'Score: 0';
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('gameOver').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('score').style.display = 'block';
+    update();
+  }
   
-update();
+  // Initial UI Setup: hide stuff when the page first loads
+  document.getElementById('gameOver').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('score').style.display = 'none';
+
+  
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+  
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  
+  // Close menu when clicking a nav link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+  
+  // Close menu when clicking outside the nav when it's open
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    }
+  });
+  

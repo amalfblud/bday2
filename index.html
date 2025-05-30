@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Our Story 💖</h1>
+
+    <!-- Photo Gallery -->
+    <section class="gallery">
+      <h2>Memories</h2>
+      <div class="gallery-grid">
+        <img src="assets/images/pic1.jpg" alt="Memory 1" />
+        <img src="assets/images/pic2.jpg" alt="Memory 2" />
+        <img src="assets/images/pic3.jpg" alt="Memory 3" />
+      </div>
+    </section>
+
+    <!-- Mini Game -->
+    <section class="game">
+        <h2>Catch the Hearts Game</h2>
+        <div class="game-container">
+          <canvas id="gameCanvas" width="400" height="400"></canvas>
+          <div id="overlay"></div>
+          <div id="gameOver">
+            <h2>Game Over!</h2>
+            <button onclick="retryGame()">Retry</button>
+          </div>
+        </div>
+        <div class="touch-controls">
+            <button id="leftBtn">◀</button>
+            <button id="rightBtn">▶</button>
+        </div>
+        <p id="score">Score: 0</p>
+    </section>
+      
+
+    <!-- Love Note -->
+    <section class="note">
+      <h2>A Little Note</h2>
+      <p>I love you more than words can say. Every moment with you is precious. Thank you for being in my life. 💌</p>
+    </section>
+
+     <!-- Voice Note / Video -->
+     <section class="media">
+        <h2>Or Watch This Video</h2>
+        <video width="320" height="240" controls>
+          <source src="assets/video/ourvideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

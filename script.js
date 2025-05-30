@@ -152,11 +152,15 @@ function startGame() {
 
   
   const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('nav ul');
+  const navLinks = document.querySelector('.nav-links');
   
-  menuToggle.addEventListener('click', () => {
+  // Toggle menu
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event from bubbling to document
     menuToggle.classList.toggle('open');
     navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', 
+      menuToggle.classList.contains('open'));
   });
   
   // Close menu when clicking a nav link
@@ -164,14 +168,15 @@ function startGame() {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('open');
       navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
   
-  // Close menu when clicking outside the nav when it's open
+  // Close menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
       menuToggle.classList.remove('open');
       navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
-  

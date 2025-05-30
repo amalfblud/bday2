@@ -163,12 +163,28 @@ function startGame() {
       menuToggle.classList.contains('open'));
   });
   
-  // Close menu when clicking a nav link
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('open');
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+// Simple, working version
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (this.hash) {
+        e.preventDefault();
+        // Close menu
+        menuToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+        
+        // Temporarily disable snap scroll
+        document.documentElement.style.scrollSnapType = 'none';
+        
+        // Scroll to section
+        document.querySelector(this.hash).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Re-enable snap scroll after delay
+        setTimeout(() => {
+          document.documentElement.style.scrollSnapType = 'y mandatory';
+        }, 1000);
+      }
     });
   });
   
@@ -180,3 +196,4 @@ function startGame() {
       menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
+

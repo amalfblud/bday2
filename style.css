@@ -45,7 +45,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
+    height: 70px;
+    z-index: 1000 !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     backdrop-filter: blur(5px); /* Optional: frosted glass effect */
   }
@@ -142,6 +143,8 @@ body {
       flex-direction: column;
       gap: 10px;
       display: none; /* Hidden by default */
+      pointer-events: auto !important;
+      z-index: 1100 !important;
     }
 
     .nav-links li {
@@ -162,7 +165,7 @@ body {
     }
     
     .nav-links.open {
-      display: flex; /* Show when toggled */
+      display: flex !important; /* Show when toggled */
     }
     
     /* Hamburger animation */
@@ -177,15 +180,14 @@ body {
     }
   }
   
-  
-  /* Optional: Snap scroll effect */
-  html {
-    scroll-snap-type: y mandatory;
+/* Add this to your CSS */
+html {
+    scroll-behavior: smooth;
   }
   
-  .full-section, .gallery, .game, .note, .media {
-    scroll-snap-align: start;
-  }  
+  section {
+    scroll-margin-top: 70px;
+  }
 
   .container {
     padding: 20px;
@@ -276,6 +278,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border: 5px solid #FF69B4;
+    z-index: 1 !important;
   }
 
   @media (max-width: 480px) {
@@ -290,6 +293,7 @@ body {
     width: 100%;   /* fill container width */
     height: 100%;  /* fill container height */
     display: block;
+    pointer-events: none;
   }
   
   #overlay {
@@ -396,3 +400,17 @@ body {
     background: #FF1493;
   }
   
+/* Ensure sections have proper scroll margin */
+#note, #game, #memories, #video {
+    scroll-margin-top: 70px;
+  }
+  
+  /* Fallback for older browsers */
+  #note:target,
+  #game:target,
+  #memories:target,
+  #video:target {
+    padding-top: 70px;
+    margin-top: -70px;
+    display: inline-block;
+  }

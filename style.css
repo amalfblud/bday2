@@ -225,7 +225,7 @@ html {
     background: rgba(255, 105, 180, 0.1); /* Hot pink glass effect */
     backdrop-filter: blur(10px) saturate(150%);
     -webkit-backdrop-filter: blur(10px) saturate(150%);
-    padding: 70px 40px 40px;
+    padding: 90px 40px 30px;
     border-radius: 20px;
     max-width: 700px;
     margin: 70px auto;
@@ -239,7 +239,6 @@ html {
                 0 4px 16px rgba(255, 20, 147, 0.2);
     border: 1px solid rgba(255, 105, 180, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-margin-top: 140px;
   
     /* Animation */
     opacity: 0;
@@ -412,3 +411,12 @@ html {
     scroll-margin-top: 70px;
   }
   
+  /* Fallback for older browsers */
+  #note:target,
+  #game:target,
+  #memories:target,
+  #video:target {
+    padding-top: 70px;
+    margin-top: -70px;
+    display: inline-block;
+  }

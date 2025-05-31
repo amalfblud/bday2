@@ -13,23 +13,23 @@ let updateId;
 let fallSpeed = 2;
 
 const basketImg = new Image();
-basketImg.src = 'assets/img/basket.png';
+basketImg.src = 'assets/gem/basket.png';
 
 function drawBasket() {
   ctx.drawImage(basketImg, basketX, 340, 70, 70); 
 }
 
 const brokenHeart = new Image();
-brokenHeart.src = 'assets/img/brokenheart.png';
+brokenHeart.src = 'assets/gem/brokenheart.png';
 
 const heartImages = [
-    'assets/img/heart.png',
-    'assets/img/heart1.png',
-    'assets/img/heart2.png',
-    'assets/img/heart3.png',
-    'assets/img/heart4.png',
-    'assets/img/heart5.png',
-    'assets/img/heart6.png'
+    'assets/gem/heart.png',
+    'assets/gem/heart1.png',
+    'assets/gem/heart2.png',
+    'assets/gem/heart3.png',
+    'assets/gem/heart4.png',
+    'assets/gem/heart5.png',
+    'assets/gem/heart6.png'
   ].map(src => {
     let img = new Image();
     img.src = src;
@@ -197,3 +197,82 @@ navLinks.querySelectorAll('a').forEach(link => {
     }
   });
 
+// Open lightbox when clicking gallery items
+document.querySelectorAll('.memory-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const imgSrc = item.querySelector('img').src;
+    const caption = item.querySelector('.caption').textContent;
+    
+    document.getElementById('lightbox-img').src = imgSrc;
+    document.getElementById('lightbox-caption').textContent = caption;
+    document.getElementById('lightbox').style.display = 'block';
+  });
+});
+
+// Close lightbox
+document.querySelector('.close-btn').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+
+// Close when clicking outside image
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+});
+
+// Updated click handler for videos
+document.querySelectorAll('.memory-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightbox-img');
+    const caption = this.querySelector('.caption').textContent;
+
+    // Clear previous content
+    lightboxContent.innerHTML = '';
+
+    // Check if it's a video
+    const video = this.querySelector('video');
+    if (video) {
+      const videoSource = video.querySelector('source').src;
+      const newVideo = document.createElement('video');
+      newVideo.controls = true;
+      newVideo.autoplay = true;
+      newVideo.muted = false; // Now we'll hear sound
+      newVideo.classList.add('lightbox-video');
+      
+      const source = document.createElement('source');
+      source.src = videoSource;
+      source.type = 'video/mp4';
+      
+      newVideo.appendChild(source);
+      lightboxContent.appendChild(newVideo);
+    } else {
+      // Original image handling
+      const img = document.createElement('img');
+      img.src = this.querySelector('img').src;
+      img.classList.add('lightbox-img');
+      lightboxContent.appendChild(img);
+    }
+
+    document.getElementById('lightbox-caption').textContent = caption;
+    lightbox.style.display = "block";
+  });
+});
+
+// Close lightbox
+document.querySelector('.close-btn').addEventListener('click', () => {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightbox-img');
+  lightboxContent.innerHTML = ''; // Clear content when closing
+  lightbox.style.display = 'none';
+});
+
+// Close when clicking outside
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lightbox')) {
+    const lightboxContent = document.getElementById('lightbox-img');
+    lightboxContent.innerHTML = ''; // Clear content when closing
+    document.getElementById('lightbox').style.display = 'none';
+  }
+});

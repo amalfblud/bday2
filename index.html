@@ -19,12 +19,12 @@
             <li><a href="#note">Note</a></li>
             <li><a href="#game">Mini Game :3</a></li>
             <li><a href="#memories">Memories</a></li>
-            <li><a href="#video">Video</a></li>
+            <li><a href="#media">Video</a></li>
         </ul>
         </nav>
     </header>
       
-    <div class="container">
+  <div class="container">
     <!-- Love Note -->
     <section id="note" class="note">
         <h2>Sharifah Fauziana 💖</h2>
@@ -58,7 +58,7 @@
 
     <!-- Mini Game -->
     <section id="game" class="game">
-        <h2>Main Gameeee 💖</h2><br>
+        <h2>Main Gameeee 🎮🎮</h2><br>
         <div class="game-container">
             <canvas id="gameCanvas" width="400" height="400"></canvas>
             <div id="overlay"></div>
@@ -72,7 +72,7 @@
             <!-- Game Over Screen -->
             <div id="gameOver">
                 <h2>Yaahhh ˙◠˙</h2>
-                <button onclick="retryGame()">Coba lagi Coba Lagii Pokoknya Main Lagiii !!!</button>
+                <button onclick="retryGame()">Coba lagi Coba Lagii<br> Pokoknya Main Lagiii😠😠 !!!</button>
             </div>
         </div>
   
@@ -84,24 +84,97 @@
         <p id="score">Score: 0</p>
     </section>
   
+    <!-- Lightbox Popup -->
+    <div id="lightbox" class="lightbox">
+      <span class="close-btn">&times;</span>
+      <div class="lightbox-content" id="lightbox-img"></div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
 
     <!-- Photo Gallery -->
     <section id="memories" class="memories">
-        <h2>Memories</h2>
+        <h2>Memories 💖</h2>
         <div class="gallery-grid">
-          <img src="assets/images/pic1.jpg" alt="Memory 1" />
-          <img src="assets/images/pic2.jpg" alt="Memory 2" />
-          <img src="assets/images/pic3.jpg" alt="Memory 3" />
+          <div class="memory-item">
+            <img src="assets/media/us3.jpeg" alt="Memory 1">
+            <p class="caption">You n Me 🥰</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/us2.jpg" alt="Memory 2">
+            <p class="caption">Mau Call lagii 📞🤳🤙</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/us1.jpeg" alt="Memory 3">
+            <p class="caption">Ada kitaaa 🤗</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/walletpic.jpg" alt="Memory 4">
+            <p class="caption">Ada cewe cantik di dompetku 😋😋</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/keychains1.jpeg" alt="Memory 5">
+            <p class="caption">Aku 😈🥵🥶👩🏻‍🦱</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/keychains2.jpg" alt="Memory 6">
+            <p class="caption">Kamu 😇😍😘👩🏻</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/mucang.jpeg" alt="Memory 7">
+            <p class="caption">Mucanggg 🐱😼</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/lilis.jpeg" alt="Memory 8">
+            <p class="caption">Lilissss 🐱😽</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/shastatus2.jpg" alt="Memory 9">
+            <p class="caption">My Favorite 💘💘</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/shastatus1.jpg" alt="Memory 10">
+            <p class="caption">ᜊ n 3^07 ! ᜊ</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/shastatus4.jpeg" alt="Memory 11">
+            <p class="caption">I love my gf 💕💝</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/shastatus3.jpeg" alt="Memory 12">
+            <p class="caption">Bersamamu seumur hidupku 💞❤️‍🔥</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/me.jpg" alt="Memory 13">
+            <p class="caption">⸜(｡˃ ᵕ ˂ )⸝♡</p>
+          </div>
+          <div class="memory-item">
+            <img src="assets/media/shana.jpg" alt="Memory 14">
+            <p class="caption">(ෆ˙ᵕ˙ෆ)♡</p>
+          </div>
+          <div class="memory-item">
+            <video class="gallery-video" poster="assets/media/shanalilis-thumb.png" muted loop>
+              <source src="assets/media/shanlilis.mp4" type="video/mp4">
+            </video>
+            <p class="caption">Comeelll 🥺🥰😚</p>
+          </div>
+          <div class="memory-item">
+            <video class="gallery-video" poster="assets/media/ourvids-thumb.jpeg" muted loop>
+              <source src="assets/media/ourvids.mp4" type="video/mp4">
+            </video>
+            <p class="caption">Us 👻😍🥳🤗</p>
+          </div>
         </div>
       </section>
 
      <!-- Voice Note / Video -->
-     <section id="video" class="video">
-        <h2>My Message</h2>
-        <video width="320" height="240" controls>
-          <source src="assets/video/ourvideo.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+     <section id="media" class="media">
+        <h2>My Message to You 🎥</h2>
+        <div class="video-wrapper">
+          <video controls poster="assets/media/drugscandle.jpeg">
+            <source src="assets/media/ourvids.mp4" type="video/mp4">
+          </video>
+          <p class="video-caption">Listen to my heart... ❤️</p>
+        </div>
       </section>
   </div>
 

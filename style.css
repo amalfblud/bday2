@@ -200,24 +200,218 @@ html {
     color: #FF69B4;
   }
   
+  /*Gallery*/
+  .memories {
+  padding: 20px;
+  text-align: center;
+}
+
+.gallery-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.memory-item {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.memory-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 163, 212, 0.7);
+  color: white;
+  padding: 10px;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 600px) {
   .gallery-grid {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
+  .gallery-grid img {
+    height: 150px;
+  }
+}
+
+/* Video thumbnails in gallery */
+.gallery-video {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Play button overlay */
+.memory-item video::after {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(255, 105, 180, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* ===== Lightbox Styles ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  text-align: center;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80vh;
+  margin: 10vh auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-img, .lightbox-video {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+.lightbox-video {
+  width: auto;
+  height: auto;
+  min-width: 50%;
+  background: #000;
+}
+
+.lightbox-caption {
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  color: #ffa4d1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+  /*Video*/
+  .media {
+  padding: 20px;
+  text-align: center;
+  background-image: linear-gradient(135deg, #ffe4e1, #ffa4d1);
+  background-color: rgba(255, 255, 255, 0.3); /* Fallback */
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  margin: 30px auto 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2), 
+              0 4px 16px rgba(255, 20, 147, 0.2);
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  border-radius: 12px; /* Soft rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 900px;
+  }
+
+  .media:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(255, 20, 147, 0.3), 
+              0 8px 24px rgba(255, 20, 147, 0.3);
+  }
+
+  .video-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+  }
+
+  .media video {
+  width: 100%;
+  max-height: 450px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 105, 180, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .video-caption {
+  margin-top: 15px;
+  font-style: italic;
+  color: #ff1493;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /*Mobile Responsive*/
+  @media (max-width: 600px) {
   .gallery-grid img {
     width: 150px;
     height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   
-  .media audio, .media video {
-    margin: 10px auto;
-    display: block;
+  .video-wrapper {
+    padding: 10px;
+  }
   }
   
   .note {
